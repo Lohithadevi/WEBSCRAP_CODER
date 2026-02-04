@@ -1,0 +1,34 @@
+name: Daily Scraper Automation
+
+on:
+  schedule:
+    # This runs at 00:00 UTC every day (approx 5:30 AM IST)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows you to run it manually from the GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Scraper Engine
+        run: node engine.js
+
+      - name: Commit and Push Results
+        run: |
+          git config --global user.name "Scraper Bot"
+          git config --global user.email "bot@github.com"
+          git add final_leaderboard.json
+          git commit -m "Auto-update leaderboard: $(date)" || echo "No changes to commit"
+          git push
