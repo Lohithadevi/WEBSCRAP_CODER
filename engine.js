@@ -8,10 +8,10 @@ const BATCH_SIZE = 1;
 const WAIT_TIME = 3000;    
 
 const Adapters = {
-    // UPDATED HACKERRANK ADAPTER
+    // UPDATED HACKERRANK ADAPTER.
     hackerrank: async (user) => {
         try {
-            // We switch to the 'recent_challenges' endpoint which is more public
+            // WE SWITCH TO THE 'recent_challenges' ENDPOINT WHICH IS MORE PUBLIC.
             const res = await axios.get(`https://www.hackerrank.com/rest/hackers/${user}/recent_challenges?limit=1000`, {
                 headers: { 
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
@@ -21,8 +21,8 @@ const Adapters = {
                 timeout: 10000
             });
 
-            // This returns a list of unique challenges solved. 
-            // We use a Set to ensure we only count unique solved problems.
+            // THIS RETURNS A LIST OF UNIQUE CHALLENGES THAT ARE SOLVED. 
+            // We use a Set to ensure that we only count unique solved problems.
             if (res.data && res.data.models) {
                 const uniqueSolved = new Set(res.data.models.map(m => m.ch_id));
                 return uniqueSolved.size;
