@@ -17180,10 +17180,10 @@
     },
     "counts": {
       "leetcode": 463,
-      "codeforces": 39,
+      "codeforces": 0,
       "atcoder": 51,
       "hackerrank": 1,
-      "total": 554
+      "total": 515
     }
   },
   {
@@ -25561,10 +25561,10 @@
     },
     "counts": {
       "leetcode": 361,
-      "codeforces": 0,
+      "codeforces": 11,
       "atcoder": 16,
       "hackerrank": 0,
-      "total": 377
+      "total": 388
     }
   },
   {
@@ -32428,11 +32428,11 @@
       "github": "lohithadevi"
     },
     "counts": {
-      "leetcode": 0,
+      "leetcode": 530,
       "codeforces": 17,
       "atcoder": 63,
       "hackerrank": 0,
-      "total": 80
+      "total": 610
     }
   },
   {
